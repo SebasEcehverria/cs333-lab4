@@ -6,3 +6,11 @@ Lab 4 Part 1: QR code generator
 3. Save every URL, with the date and time, to urls.txt using node:fs/promises.
 4. Tell the user it worked.
 */
+
+import { input } from "@inquirer/prompts";
+
+const url = await input({
+  message: "Which website should the QR code point to?"
+});
+
+console.log("You typed:", url);
