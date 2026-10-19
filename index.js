@@ -10,16 +10,21 @@ Lab 4 Part 1: QR code generator
 import { input } from "@inquirer/prompts";
 import QRCode from "qrcode";
 
-// Ask the user which website they want.
+// Ask the user for a valid website URL.
 const url = await input({
-  message: "Which website should the QR code point to?"
+  message: "Which website should the QR code point to?",
+  validate: function (value) {
+    if (URL.canParse(value)) {
+      return true;
+    }
+    return "Type the whole address, starting with https://";
+  },
 });
 
-// Display their input.
 console.log("You typed:", url);
 
-// Generate a QR code PNG.
+// Generate the QR code.
 await QRCode.toFile("qr.png", url);
-
 console.log("Saved qr.png");
+
 
