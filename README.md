@@ -46,6 +46,8 @@ node --version
 You should see something like `v22.11.0` or higher. If you see "command not found", or a number below 22, install the **LTS** version from [nodejs.org](https://nodejs.org), then close the terminal and open a new one.
 
 **Question 2:** what version do you have?
+npm --version
+v24.21.0
 
 ## 3. Try Node by itself
 
@@ -60,6 +62,7 @@ Type `node` and press Enter. The prompt changes to `>`. Now Node runs each line 
 Type `.exit` to leave.
 
 **Question 3:** `document` worked in the browser's Console. What happens here, and why do you think that is?
+When I tried using document in Node, I got a ReferenceError saying document is not defined. This is because Node runs JavaScript outside of the browser, so it doesn't have access to browser-specific things like document or the HTML page.
 
 ## 4. Your first Node program
 
@@ -91,6 +94,7 @@ node --watch index.js
 ```
 
 **Question 4:** What does the `--watch` flag do?
+The --watch flag makes Node automatically rerun my program whenever I save changes to the file. This is useful because I don't have to keep manually running the program every time I make a change.
 
 **TODO:** change the message and save. It runs again by itself. Press **Ctrl+C** to stop it.
 
@@ -128,6 +132,7 @@ Run it with `node index.js`. A new `message.txt` appears in your folder. Open it
 **TODO 1:** change the file name in `readFile` to `nope.txt` and run it. Read the red error.
 
 **Question 5:** what is the error code? (It's a word in capitals.)
+The error code I got was ENOENT. This happens because Node was trying to read a file that doesn't exist.
 
 **TODO 2:** fix the crash with `try` / `catch`, the same as last Wednesday. Replace the last two lines with:
 
@@ -143,6 +148,7 @@ try {
 Run it again: a friendly message instead of a crash.
 
 **Question 6:** How does try/catch in js work with await? Just describe the above example in your own words.
+The try block attempts to run the code, and await waits for the file to be read before continuing. If something goes wrong, like the file not existing, JavaScript jumps to the catch block instead of crashing the program. The catch block then prints out the error code so we know what went wrong.
 
 ## 7. You'll see older code too
 
@@ -172,10 +178,11 @@ There are two popular QR code packages. Look each one up on [npmjs.com](https://
 
 | | `qr-image` | `qrcode` |
 | --- | --- | --- |
-| Weekly downloads | | |
-| Last published (look on the right side of the page) | | |
+| Weekly downloads | 120,066 | 18,476,870 |
+| Last published (look on the right side of the page) | 10 years ago | 2 years ago |
 
 **Question 8:** which would you pick for a project you had to look after for years, and why? (We'll use `qrcode`.)
+I would choose qrcode because it has way more weekly downloads and has been updated more recently than qr-image. If I was maintaining a project for years, I would rather use a package that is more widely used and has a better chance of receiving updates and fixes.
 
 ## 9. The QR code generator
 
