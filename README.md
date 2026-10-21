@@ -374,6 +374,8 @@ When I commented out next(), the browser just kept loading and never displayed t
 
 20. **TODO:** type `<b>Maple</b>` as the street name. **Question 15:** what happens, and why is that the same problem as Week 3's `innerHTML`?
 
+When I entered HTML tags as the street name, the browser actually applied the formatting instead of showing the tags as text. I tested it with an italic tag since everything was already bold. This is the same issue we saw with innerHTML in Week 3 because user input is being inserted directly into HTML. This could be a security issue if someone entered malicious code.
+
 21. Now look at `solution4.js`. It fixes that with `escapeHtml`, and it moves the band-name step into its own middleware, `bandNameGenerator`, which only runs for `/submit`. Copy those two functions into your `index4.js` and change your route to match `solution4.js`.
     **Question 16:** what does `bandNameGenerator` do when a box is empty? Test it with the third request in `requests.http`.
 
