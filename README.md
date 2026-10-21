@@ -296,6 +296,7 @@ To run a file: `npm run dev1` (or `dev2`, `dev3`, `dev4`). That runs `node --wat
 
 10. Run `npm run dev1` and open `http://localhost:3000`. You see the form. Fill it in and press the button.
     **Question 9:** what does the page say?
+    When I submitted the form, the page said "Cannot POST /submit". This happened because the server didn't have a route set up yet to handle the form submission.
 
 11. Add a route for the form. Type this above `app.listen`:
     ```js
@@ -305,12 +306,14 @@ To run a file: `npm run dev1` (or `dev2`, `dev3`, `dev4`). That runs `node --wat
     });
     ```
     Submit the form again. **Question 10:** what does the server terminal print for `req.body`?
+    The terminal printed undefined for req.body. This is because we haven't added the middleware that reads the information being submitted through the form yet.
 
 12. Add this line under `const port = 3000;`:
     ```js
     app.use(express.urlencoded());
     ```
     Submit again. **Question 11:** what does the terminal print now? What did `express.urlencoded()` do?
+    This time the terminal printed out the street and pet names that I entered in the form. The express.urlencoded() middleware takes the form data and converts it into an object that we can access using req.body.
 
 13. **Test without the browser.** Install the **REST Client** extension in VS Code, open `Middleware/requests.http`, and click **Send Request** above the second request. The answer opens on the right.
     **TODO:** change `Biscuit` to another pet name in `requests.http` and send it again. Look at the server terminal.
