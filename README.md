@@ -330,6 +330,8 @@ To run a file: `npm run dev1` (or `dev2`, `dev3`, `dev4`). That runs `node --wat
     Reload `http://localhost:3000` a few times and look at the terminal.
     **Question 12:** a log line looks like `GET / 200 3.1 ms - 5`. What do you think each part means?
 
+    GET is the type of request being made, and / means it's requesting the homepage. The 200 means the request was successful, while 304 means the browser already has a cached version. The time in milliseconds shows how long the server took to respond, and the number at the end shows the response size in bytes. Morgan logs all of this automatically so we can see what requests our server is receiving.
+
 ## index3.js: write your own middleware
 
 15. Run `npm run dev3`. It crashes straight away. **Question 13:** what does the error say?
