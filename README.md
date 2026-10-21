@@ -336,6 +336,8 @@ To run a file: `npm run dev1` (or `dev2`, `dev3`, `dev4`). That runs `node --wat
 
 15. Run `npm run dev3`. It crashes straight away. **Question 13:** what does the error say?
 
+The program crashed with a ReferenceError saying logger is not defined. This happened because the program was trying to use a middleware function called logger that hadn't been created yet.
+
 16. Fix it: type this function above `app.use(logger);`:
     ```js
     function logger(req, res, next) {
@@ -347,6 +349,8 @@ To run a file: `npm run dev1` (or `dev2`, `dev3`, `dev4`). That runs `node --wat
     Reload the page and look at the terminal.
 
 17. **TODO:** put `//` in front of `next();` and reload the page. **Question 14:** what happens in the browser? Why? Then take the `//` away.
+
+When I commented out next(), the browser just kept loading and never displayed the page. This happened because the middleware wasn't telling Express to move on to the next function. Without next() or a response being sent, the request gets stuck waiting.
 
 ## index4.js: the Band Name Generator
 
