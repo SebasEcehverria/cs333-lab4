@@ -14,7 +14,7 @@ Every step gives you the code. Type it in (typing it is how it sticks), run it, 
 
 This lab runs **on your computer**. Our `lampforall` server only hands out the files you upload; it can't run Node programs. **Question 1**: Why can't our lampforall run Node?
 
-Our lampforall server can't run Node because it's only set up to serve files like HTML, CSS, and JavaScript to the browser. It doesn't have a Node.js runtime available for us to execute programs on the server. That's why we have to run our Node programs locally on our own computers instead.
+**Our lampforall server can't run Node because it's only set up to serve files like HTML, CSS, and JavaScript to the browser. It doesn't have a Node.js runtime available for us to execute programs on the server. That's why we have to run our Node programs locally on our own computers instead.**
 
 **Stuck on Monday?** Look at the **Stuck?** table at the bottom first. Then post in the Slack lab thread: (1) the command you ran, (2) the **exact** error, copied and pasted, (3) what you already tried. Helping a classmate counts too.
 
@@ -48,8 +48,8 @@ node --version
 You should see something like `v22.11.0` or higher. If you see "command not found", or a number below 22, install the **LTS** version from [nodejs.org](https://nodejs.org), then close the terminal and open a new one.
 
 **Question 2:** what version do you have?
-npm --version
-v24.21.0
+**npm --version**
+**v24.21.0**
 
 ## 3. Try Node by itself
 
@@ -64,7 +64,7 @@ Type `node` and press Enter. The prompt changes to `>`. Now Node runs each line 
 Type `.exit` to leave.
 
 **Question 3:** `document` worked in the browser's Console. What happens here, and why do you think that is?
-When I tried using document in Node, I got a ReferenceError saying document is not defined. This is because Node runs JavaScript outside of the browser, so it doesn't have access to browser-specific things like document or the HTML page.
+**When I tried using document in Node, I got a ReferenceError saying document is not defined. This is because Node runs JavaScript outside of the browser, so it doesn't have access to browser-specific things like document or the HTML page.**
 
 ## 4. Your first Node program
 
@@ -96,7 +96,7 @@ node --watch index.js
 ```
 
 **Question 4:** What does the `--watch` flag do?
-The --watch flag makes Node automatically rerun my program whenever I save changes to the file. This is useful because I don't have to keep manually running the program every time I make a change.
+**The --watch flag makes Node automatically rerun my program whenever I save changes to the file. This is useful because I don't have to keep manually running the program every time I make a change.**
 
 **TODO:** change the message and save. It runs again by itself. Press **Ctrl+C** to stop it.
 
@@ -134,7 +134,7 @@ Run it with `node index.js`. A new `message.txt` appears in your folder. Open it
 **TODO 1:** change the file name in `readFile` to `nope.txt` and run it. Read the red error.
 
 **Question 5:** what is the error code? (It's a word in capitals.)
-The error code I got was ENOENT. This happens because Node was trying to read a file that doesn't exist.
+**The error code I got was ENOENT. This happens because Node was trying to read a file that doesn't exist.**
 
 **TODO 2:** fix the crash with `try` / `catch`, the same as last Wednesday. Replace the last two lines with:
 
@@ -150,7 +150,7 @@ try {
 Run it again: a friendly message instead of a crash.
 
 **Question 6:** How does try/catch in js work with await? Just describe the above example in your own words.
-The try block attempts to run the code, and await waits for the file to be read before continuing. If something goes wrong, like the file not existing, JavaScript jumps to the catch block instead of crashing the program. The catch block then prints out the error code so we know what went wrong.
+**The try block attempts to run the code, and await waits for the file to be read before continuing. If something goes wrong, like the file not existing, JavaScript jumps to the catch block instead of crashing the program. The catch block then prints out the error code so we know what went wrong.**
 
 ## 7. You'll see older code too
 
@@ -184,7 +184,7 @@ There are two popular QR code packages. Look each one up on [npmjs.com](https://
 | Last published (look on the right side of the page) | 10 years ago | 2 years ago |
 
 **Question 8:** which would you pick for a project you had to look after for years, and why? (We'll use `qrcode`.)
-I would choose qrcode because it has way more weekly downloads and has been updated more recently than qr-image. If I was maintaining a project for years, I would rather use a package that is more widely used and has a better chance of receiving updates and fixes.
+**I would choose qrcode because it has way more weekly downloads and has been updated more recently than qr-image. If I was maintaining a project for years, I would rather use a package that is more widely used and has a better chance of receiving updates and fixes.**
 
 ## 9. The QR code generator
 
@@ -296,7 +296,8 @@ To run a file: `npm run dev1` (or `dev2`, `dev3`, `dev4`). That runs `node --wat
 
 10. Run `npm run dev1` and open `http://localhost:3000`. You see the form. Fill it in and press the button.
     **Question 9:** what does the page say?
-    When I submitted the form, the page said "Cannot POST /submit". This happened because the server didn't have a route set up yet to handle the form submission.
+    
+    **When I submitted the form, the page said "Cannot POST /submit". This happened because the server didn't have a route set up yet to handle the form submission.**
 
 11. Add a route for the form. Type this above `app.listen`:
     ```js
@@ -306,14 +307,16 @@ To run a file: `npm run dev1` (or `dev2`, `dev3`, `dev4`). That runs `node --wat
     });
     ```
     Submit the form again. **Question 10:** what does the server terminal print for `req.body`?
-    The terminal printed undefined for req.body. This is because we haven't added the middleware that reads the information being submitted through the form yet.
+    
+    **The terminal printed undefined for req.body. This is because we haven't added the middleware that reads the information being submitted through the form yet.**
 
 12. Add this line under `const port = 3000;`:
     ```js
     app.use(express.urlencoded());
     ```
     Submit again. **Question 11:** what does the terminal print now? What did `express.urlencoded()` do?
-    This time the terminal printed out the street and pet names that I entered in the form. The express.urlencoded() middleware takes the form data and converts it into an object that we can access using req.body.
+    
+    **This time the terminal printed out the street and pet names that I entered in the form. The express.urlencoded() middleware takes the form data and converts it into an object that we can access using req.body.**
 
 13. **Test without the browser.** Install the **REST Client** extension in VS Code, open `Middleware/requests.http`, and click **Send Request** above the second request. The answer opens on the right.
     **TODO:** change `Biscuit` to another pet name in `requests.http` and send it again. Look at the server terminal.
@@ -330,13 +333,13 @@ To run a file: `npm run dev1` (or `dev2`, `dev3`, `dev4`). That runs `node --wat
     Reload `http://localhost:3000` a few times and look at the terminal.
     **Question 12:** a log line looks like `GET / 200 3.1 ms - 5`. What do you think each part means?
 
-    GET is the type of request being made, and / means it's requesting the homepage. The 200 means the request was successful, while 304 means the browser already has a cached version. The time in milliseconds shows how long the server took to respond, and the number at the end shows the response size in bytes. Morgan logs all of this automatically so we can see what requests our server is receiving.
+    **GET is the type of request being made, and / means it's requesting the homepage. The 200 means the request was successful, while 304 means the browser already has a cached version. The time in milliseconds shows how long the server took to respond, and the number at the end shows the response size in bytes. Morgan logs all of this automatically so we can see what requests our server is receiving.**
 
 ## index3.js: write your own middleware
 
 15. Run `npm run dev3`. It crashes straight away. **Question 13:** what does the error say?
 
-The program crashed with a ReferenceError saying logger is not defined. This happened because the program was trying to use a middleware function called logger that hadn't been created yet.
+**The program crashed with a ReferenceError saying logger is not defined. This happened because the program was trying to use a middleware function called logger that hadn't been created yet.**
 
 16. Fix it: type this function above `app.use(logger);`:
     ```js
@@ -350,7 +353,7 @@ The program crashed with a ReferenceError saying logger is not defined. This hap
 
 17. **TODO:** put `//` in front of `next();` and reload the page. **Question 14:** what happens in the browser? Why? Then take the `//` away.
 
-When I commented out next(), the browser just kept loading and never displayed the page. This happened because the middleware wasn't telling Express to move on to the next function. Without next() or a response being sent, the request gets stuck waiting.
+**When I commented out next(), the browser just kept loading and never displayed the page. This happened because the middleware wasn't telling Express to move on to the next function. Without next() or a response being sent, the request gets stuck waiting.**
 
 ## index4.js: the Band Name Generator
 
@@ -374,10 +377,12 @@ When I commented out next(), the browser just kept loading and never displayed t
 
 20. **TODO:** type `<b>Maple</b>` as the street name. **Question 15:** what happens, and why is that the same problem as Week 3's `innerHTML`?
 
-When I entered HTML tags as the street name, the browser actually applied the formatting instead of showing the tags as text. I tested it with an italic tag since everything was already bold. This is the same issue we saw with innerHTML in Week 3 because user input is being inserted directly into HTML. This could be a security issue if someone entered malicious code.
+**When I entered HTML tags as the street name, the browser actually applied the formatting instead of showing the tags as text. I tested it with an italic tag since everything was already bold. This is the same issue we saw with innerHTML in Week 3 because user input is being inserted directly into HTML. This could be a security issue if someone entered malicious code.**
 
 21. Now look at `solution4.js`. It fixes that with `escapeHtml`, and it moves the band-name step into its own middleware, `bandNameGenerator`, which only runs for `/submit`. Copy those two functions into your `index4.js` and change your route to match `solution4.js`.
     **Question 16:** what does `bandNameGenerator` do when a box is empty? Test it with the third request in `requests.http`.
+
+    **When one of the boxes is empty, bandNameGenerator stops the request and returns a 400 Bad Request error saying "Both names are needed." It doesn't call next(), so the program won't continue trying to generate a band name. This makes sure both fields have a value before creating the band name.**
 
 **Commit** after each `indexN.js` works.
 
@@ -439,7 +444,10 @@ The Band Name Generator has no style at all yet. Give it some.
    ```
 
 **Question:** add a screenshot of your styled Band Name Generator to this README.
+Here is my finished Band Name Generator with a custom dark
+purple theme that I created using CSS.
 
+![Styled Band Name Generator](Middleware/public/band-generator-screenshot.png)
 ---
 
 # Hand it in

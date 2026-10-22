@@ -1,18 +1,73 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Band Name Generator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Band Name Generator | SoundLab</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Band Name Generator</h1>
-  <form action="/submit" method="POST">
-    <label for="street">Street name</label>
-    <input id="street" name="street" required>
-    <label for="pet">Pet name</label>
-    <input id="pet" name="pet" required>
-    <button>Generate</button>
-  </form>
+  <main class="container">
+
+    <div class="top-label">
+      <span class="status-dot"></span>
+      YOUR NEXT BIG HIT STARTS HERE
+    </div>
+
+    <section class="generator-card">
+
+      <div class="music-icon">♫</div>
+
+      <h1>Band Name <span>Generator.</span></h1>
+
+      <p class="subtitle">
+        Every legendary band starts with a name.
+        Let's discover yours.
+      </p>
+
+      <form action="/submit" method="POST">
+
+        <div class="form-group">
+          <label for="street">STREET NAME</label>
+          <input
+            type="text"
+            id="street"
+            name="street"
+            placeholder="e.g. Maple"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="pet">PET NAME</label>
+          <input
+            type="text"
+            id="pet"
+            name="pet"
+            placeholder="e.g. Rocky"
+            required
+          >
+        </div>
+
+        <button type="submit">
+          Generate My Band Name
+          <span>↗</span>
+        </button>
+
+      </form>
+
+      <div class="card-footer">
+        <span>✦ MADE FOR FUTURE ROCKSTARS</span>
+      </div>
+
+    </section>
+
+    <footer>
+      CS333 LAB 4 • BUILT WITH NODE.JS + EXPRESS
+    </footer>
+
+  </main>
 </body>
 </html>
